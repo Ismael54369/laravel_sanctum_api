@@ -26,7 +26,6 @@ Cada fruta registrada en el sistema cuenta con los siguientes atributos detallad
 
 | Campo | Tipo | Descripción | Ejemplo |
 | :--- | :--- | :--- | :--- |
-| `id` | BigInt | Identificador único | `1` |
 | `name` | String | Nombre de la fruta | `Gomu Gomu no Mi` |
 | `japanese_name` | String | Nombre original | `ゴムゴムの実` |
 | `type` | String | Tipo (Paramecia, Zoan, Logia) | `Paramecia` |
