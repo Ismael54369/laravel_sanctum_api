@@ -1,59 +1,134 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🏴‍☠️ Grand Line API: The Devil Fruit Registry
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![PHP](https://img.shields.io/badge/PHP-8.2+-777BB4?style=for-the-badge&logo=php&logoColor=white)
+![Sanctum](https://img.shields.io/badge/Auth-Sanctum-purple?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
 
-## About Laravel
+> *"El poder de las Frutas del Diablo es inmenso, pero esta API lo controla todo."*
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Una **API RESTful** robusta construida con **Laravel 12**, diseñada para gestionar una enciclopedia de **Frutas del Diablo (Akuma no Mi)**. Este proyecto implementa autenticación segura mediante tokens (**Laravel Sanctum**) para proteger la base de datos de piratas no autorizados.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## ⚡ Características Principales
 
-## Learning Laravel
+* 🔐 **Autenticación Segura:** Sistema completo de Registro y Login vía Tokens.
+* 🍎 **Gestión de Recursos:** CRUD para el modelo `DevilFruit`.
+* 🛡️ **Seguridad:** Rutas protegidas donde solo usuarios autenticados pueden añadir registros.
+* 📡 **API Standard:** Respuestas en formato JSON listas para consumir por cualquier cliente (Postman, React, Vue, etc).
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+---
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🗂️ Modelo de Datos (Devil Fruit)
 
-## Laravel Sponsors
+Cada fruta registrada en el sistema cuenta con los siguientes atributos detallados:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+| Campo | Tipo | Descripción | Ejemplo |
+| :--- | :--- | :--- | :--- |
+| `id` | BigInt | Identificador único | `1` |
+| `name` | String | Nombre de la fruta | `Gomu Gomu no Mi` |
+| `japanese_name` | String | Nombre original | `ゴムゴムの実` |
+| `type` | String | Tipo (Paramecia, Zoan, Logia) | `Paramecia` |
+| `description` | Text | Descripción de habilidades | `Cuerpo de goma...` |
+| `strength_level` | Integer | Nivel de poder (0-100) | `90` |
+| `is_awakened` | Boolean | ¿Ha despertado su poder? | `true` |
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🚀 Instalación y Despliegue
 
-## Contributing
+Sigue estos pasos para levantar el proyecto en tu entorno local (XAMPP/Docker/Local):
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 1. Clonar el repositorio
+```bash
+git clone https://github.com/Ismael54369/laravel_sanctum_api
+cd laravel_sanctum_api
+```
+### 2. Instalar dependencias
+```bash
+composer install
+```
+### 3. Configuración de Entorno
+Crea tu archivo de configuración `.env` y genera la clave de cifrado.
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+> **Nota:** Abre el archivo `.env` y configura tu base de datos (DB_DATABASE, DB_USERNAME, etc.).
+### 4. Migraciones
+Ejecuta las migraciones para crear las tablas en la base de datos.
+```bash
+php artisan migrate
+```
+### 5. Iniciar Servidor
+```bash
+php artisan serve
+```
+La API estará disponible en: `http://127.0.0.1:8000`
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🛠️ Guía de Pruebas (Postman)
 
-## Security Vulnerabilities
+Para interactuar con la API, sigue este flujo de trabajo:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 🔐 Paso 1: Registro (Obtener Token)
 
-## License
+Para poder escribir datos, necesitas identificarte.
+-   **Método:** `POST`
+-   **URL:** `/api/register`
+-   **Headers:** `Accept: application/json`
+-   **Body (JSON):**
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```json
+    {
+        "name": "Captain",
+        "email": "captain@sunny.com",
+        "password": "password123",
+        "password_confirmation": "password123"
+    }
+
+    ```
+
+-   **Respuesta:** Recibirás un `token`. **Cópialo**.
+
+### 🍎 Paso 2: Crear Fruta (Ruta Protegida)
+
+-   **Método:** `POST`
+
+-   **URL:** `/api/fruits`
+
+-   **Auth:** Pestaña `Authorization` -> Tipo `Bearer Token` -> Pega tu token.
+
+-   **Body (JSON):**
+
+
+    ```json
+    {
+        "name": "Ope Ope no Mi",
+        "japanese_name": "オペオペの実",
+        "type": "Paramecia",
+        "description": "Permite crear una sala de operaciones esférica y manipular todo dentro.",
+        "strength_level": 95,
+        "is_awakened": true
+    }
+
+    ```
+
+### 📜 Paso 3: Listar Frutas
+
+-   **Método:** `GET`
+
+-   **URL:** `/api/fruits`
+
+-   **Respuesta:** Array JSON con todas las frutas registradas.
+
+--- 
+
+## 📄 Licencia del Rey de los Piratas
+Este proyecto es libre como un pirata en el mar. Puedes usarlo, modificarlo y compartirlo bajo los términos del Código Pirata (MIT License). ¡Úsalo para el bien y encuentra el One Piece!
+
+---
+
+<p align="center"> Desarrollado con <strong>Haki de Armadura</strong> rumbo al <strong>Nuevo Mundo</strong> 🏴‍☠️ </p>
